@@ -42,6 +42,8 @@ Style/FrozenStringLiteralComment:
   EnforcedStyle: never
 Style/EndOfLine:
   Enabled: false
+Style/BlockComments:
+  Enabled: false
 
 Layout/HashAlignment:
   EnforcedColonStyle: key

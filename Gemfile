@@ -70,3 +70,9 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+group :development, :test do
+  gem 'rspec-rails', '>= 3.9.0'
+
+  gem 'ffi'
+end
