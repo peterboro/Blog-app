@@ -7,14 +7,9 @@ RSpec.describe 'Users', type: :request do
       expect(response).to have_http_status(:success)
     end
 
-    it 'returns http success' do
-      get '/users/:id'
-      expect(response).to have_http_status(:success)
-    end
-
     it 'should include correct placeholder' do
-      get '/users/:id'
-      expect(response.body).to include('Here are the users')
+      get '/users/'
+      expect(response.body).to include('Here is a single User')
     end
   end
 
@@ -26,7 +21,7 @@ RSpec.describe 'Users', type: :request do
 
     it 'should include correct placeholder' do
       get '/users/:id'
-      expect(response.body).to include('Here is the user')
+      expect(response.body).to include('Here is a single User')
     end
   end
 end
