@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to user_post_path(user_id: @post.author_id, id: @post.id)
     else
-      render :new, alert: ':( Cannot Create comment retry again :('
+      render :new, alert: 'Comment not saved'
     end
   end
 

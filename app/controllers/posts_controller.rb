@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to user_path(id: @post.author_id)
     else
-      render :new, alert: ':( Cannot Create post retry again :('
+      render :new, alert: 'Post not saved'
     end
   end
 

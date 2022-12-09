@@ -10,7 +10,7 @@ class LikesController < ApplicationController
     if @like.save
       redirect_to user_post_path(user_id: @post.author_id, id: @post.id)
     else
-      render :new, alert: ':( Cannot Add A Like retry again :('
+      render :new, alert: 'Like not saved'
     end
   end
 end
