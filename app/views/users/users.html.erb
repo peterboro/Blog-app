@@ -1,0 +1,15 @@
+<div class="users_view">
+    <% User.all.each do |user| %>
+    <%= link_to user do %>
+    <div class="user-container">
+    <div class="icon-container">
+    <div class="user-icon"></div>
+    </div>
+    <div class="user-details">
+    <div class="user-name"><%= user.name %></div>
+    <div class="user-posts">Number Of Posts: <%= user.posts_counter %></div>
+    </div>
+    </div>
+    <% end %>
+    <% end %>
+</div>

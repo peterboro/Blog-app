@@ -1,33 +1,29 @@
 <div class="users_show_view">
-  <div class="user-container">
+    <div class="user-container">
+    <div class="icon-container">
+    <div class="user-icon"></div>
+    </div>
     <div class="user-details">
-      <div class="user-name"><%= @user.name %></div>
-      <div class="user-posts">Posts: <%= @user.posts_counter %></div>
-      <div class="user-comments">Comments: <%= @user.comments_counter %></div>
-      <div class="user-likes">Likes: <%= @user.likes_counter %></div>
+    <div class="user-name"><%= @users.name %></div>
+    <div class="user-posts">Number Of Posts: <%= @users.posts_counter %></div>
+    </div>
     </div>
     <div class="user-content">
-      <div class="user-text"><%= @user.text %></div>
-      <div class="user-date">Date: <%= @user.created_at %></div>
+    <div class="context">Bio <br><br> <%= @users.bio%></div>
     </div>
-
-    <div class="user-posts">
-      <div class="posts-container">
-        <% @user.posts.each do |post| %>
-          <div class="post-container">
-            <div class="post-details">
-              <div class="post-title"><%= post.title %></div>
-              <div class="post-author">Author: <%= post.author.name %></div>
-              <div class="post-comments">Comments: <%= post.comments_counter %></div>
-              <div class="post-likes">Likes: <%= post.likes_counter %></div>
-            </div>
-            <div class="post-content">
-              <div class="post-text"><%= post.text %></div>
-              <div class="post-date">Date: <%= post.created_at %></div>
-            </div>
-          </div>
-        <%end%>
+    <% @users.most_recent_posts.each do |post| %>
+      <div class="post-content">
+      <%= link_to user_posts_path(@users) do %>
+        <div class="ptitle"> Post : <%= post.title%></div>
+        <div class="ptext"><%= post.text%></div>
+        <div class="pcount">
+        Comments: <%= post.comments_counter%>
+        Likes: <%= post.likes_counter%>
+        </div>
+        <% end %>
       </div>
-    </div>
-  </div>
+    <% end %>
+    <div class="all-posts"><%= link_to "See all posts", user_posts_path(user_id: @users.id), class: "posts-btn" %></div>
 </div>
+
+

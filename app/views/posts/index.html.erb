@@ -1,18 +1,29 @@
- <div class="posts_index_view">
-    <div class="posts-container">
-      <% @posts.each do |post| %>
-        <div class="post-container">
-          <div class="post-details">
-            <div class="post-title"><%= post.title %></div>
-            <div class="post-author">Author: <%= post.author.name %></div>
-            <div class="post-comments">Comments: <%= post.comments_counter %></div>
-            <div class="post-likes">Likes: <%= post.likes_counter %></div>
-          </div>
-          <div class="post-content">
-            <div class="post-text"><%= post.text %></div>
-            <div class="post-date">Date: <%= post.created_at %></div>
-          </div>
-        </div>
-      <%end%>
-    </div> 
- </div>
+<div class="posts_index_view">
+  <div class="search-container">
+    <form>
+      <input type="text" placeholder="Search posts...">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  <div class="user-container">
+    <div class="user-details">
+      <div class="user-name"><%= @user.try(:name) %></div>
+      <div class="user-posts">Number Of Posts: <%= @user.try(:posts_counter) %></div>
+    </div>
+    <div class="link-new-post">
+      <%= link_to "New Post", new_user_post_path, class: "new-post-btn" %>
+    </div>
+  </div>
+  <% @posts.each do |post| %>
+    <%= link_to user_post_path(user_id: post.author_id, id: post.id) do %>
+    <div class="post-content">
+      <div class="ptitle"> Post : <%= post.title%></div>
+      <div class="ptext"><%= post.text%></div>
+      <div class="pcount">
+        Comments: <%= post.comments_counter%>
+        Likes: <%= post.likes_counter%>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
