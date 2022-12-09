@@ -1,0 +1,12 @@
+<div class="postsFormContainer">
+<h1 class="create-title">Create A New Post</h1>
+<%= form_with model: @post, url: user_posts_path, data: {turbo: false}, class: "post" do |form| %>
+<div class="post-form">
+<%= form.label :title, class: "ptitle" %><br>
+<%= form.text_field :title, class: "ptitlebox" %> <br>
+<%= form.label :text, class: "ptitle" %><br>
+<%= form.text_area :text, class: "ptitlebox", cols: 40, rows: 20 %> <br>
+<%= form.submit "Submit Post", class: "posts-btn" %>
+</div>
+<% end %>
+</div>
