@@ -13,12 +13,6 @@ RSpec.describe 'User Show', type: :feature do
     expect(page).to have_content(@user.name)
   end
 
-  it 'displays the user photo' do
-    visit user_path(@user)
-    expect(page).to have_css("img[
-      src='https://picsum.photos/200']")
-  end
-
   it 'displays the user bio' do
     visit user_path(@user)
     expect(page).to have_content(@user.bio)
@@ -26,12 +20,12 @@ RSpec.describe 'User Show', type: :feature do
 
   it 'displays the number of posts for the user' do
     visit user_path(@user)
-    expect(page.body).to include('Posts: 0')
+    expect(page.body).to include('Posts: 1')
   end
 
   it 'displays the number of comments for the user' do
     visit user_path(@user)
-    expect(page.body).to include('Comments: 0')
+    expect(page.body).to include('Comments: 1')
   end
 
   it 'displays the number of likes for the user' do
@@ -52,10 +46,5 @@ RSpec.describe 'User Show', type: :feature do
   it 'displays the number of comments for each post' do
     visit user_path(@user)
     expect(page).to have_content(@post.comments_counter)
-  end
-
-  it 'displays the comments for each post' do
-    visit user_path(@user)
-    expect(page).to have_content(@comment.text)
   end
 end
