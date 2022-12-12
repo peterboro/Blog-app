@@ -9,7 +9,7 @@ RSpec.describe 'Post Index', type: :feature do
     @first_post = Post.create(author: @author, title: 'This title', text: 'My first post')
     @second_post = Post.create(author: @author, title: 'Second Title', text: 'My second post')
     @comment1 = Comment.create(author: @author, post: @second_post, text: 'Thank you')
-    @comment2= Comment.create(author: @author, post: @second_post, text: 'Thank you')
+    @comment2 = Comment.create(author: @author, post: @second_post, text: 'Thank you')
     @comment3 = Comment.create(author: @author, post: @second_post, text: 'Thank you')
 
     visit user_posts_path(@author)
@@ -18,7 +18,7 @@ RSpec.describe 'Post Index', type: :feature do
   it 'shows the username of the user' do
     expect(page).to have_content('Hero')
   end
-  
+
   it 'shows the user photo' do
     expect(page).to have_css('div.user-avatar')
   end

@@ -44,7 +44,7 @@ RSpec.describe 'User show', type: :feature do
   it 'shows the New post button' do
     expect(page).to have_content('New Post')
   end
-  
+
   it 'redirects to post show page when the post is clicked' do
     expect(page).to have_link(@post4.title)
   end
