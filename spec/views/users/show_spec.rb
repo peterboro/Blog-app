@@ -26,17 +26,17 @@ RSpec.describe 'User Show', type: :feature do
 
   it 'displays the number of posts for the user' do
     visit user_path(@user)
-    expect(page).to have_content(@user.posts_counter)
+    expect(page.body).to include('Posts: 0')
   end
 
   it 'displays the number of comments for the user' do
     visit user_path(@user)
-    expect(page).to have_content(@user.comments_counter)
+    expect(page.body).to include('Comments: 0')
   end
 
   it 'displays the number of likes for the user' do
     visit user_path(@user)
-    expect(page).to have_content(@user.likes_counter)
+    expect(page.body).to include('Likes: 0')
   end
 
   it 'displays the posts for the user' do
