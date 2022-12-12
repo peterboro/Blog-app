@@ -3,7 +3,7 @@ require 'spec_helper'
 
 RSpec.describe 'User Show', type: :feature do
   before :each do
-    @user = User.create(name: 'User1', photo: 'https://picsum.photos/200', bio: 'This is a bio' )
+    @user = User.create(name: 'User1', photo: 'https://picsum.photos/200', bio: 'This is a bio')
     @post = Post.create(title: 'Post1', text: 'This is a post', author_id: @user.id)
     @comment = Comment.create(text: 'This is a comment', author_id: @user.id, post_id: @post.id)
   end
@@ -47,7 +47,7 @@ RSpec.describe 'User Show', type: :feature do
     visit user_path(@user)
     expect(page).to have_content(@user.name)
   end
-  
+
   it 'displays the number of comments for each comment' do
     visit user_path(@user)
     expect(page.body).to include('Comments: 1')
