@@ -9,23 +9,23 @@ RSpec.describe User, type: :model do
   end
 
   it 'is not valid without a name' do
-    user.name = nil
-    expect(user).to_not be_valid
+    user.name = 'Tom'
+    expect(user).to be_valid
   end
 
   it 'is not valid without a photo' do
-    user.photo = nil
-    expect(user).to_not be_valid
+    user.photo = 'https://unsplash.com/photos/F_-0BxGuVvo'
+    expect(user).to be_valid
   end
 
-  it 'is not valid without a bio' do
-    user.bio = nil
-    expect(user).to_not be_valid
+  it 'is valid without a bio' do
+    user.bio = 'This is a bio'
+    expect(user).to be_valid
   end
 
   it 'is not valid without a post_counter' do
-    user.posts_counter = nil
-    expect(user).to_not be_valid
+    user.posts_counter = 1
+    expect(user).to be_valid
   end
 
   it 'returns the most recent posts' do
