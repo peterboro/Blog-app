@@ -1,55 +1,56 @@
 require 'rails_helper'
-require 'spec_helper'
 
-RSpec.describe 'User Show', type: :feature do
+RSpec.describe 'Post Index', type: :feature do
   before :each do
-    @user = User.create(name: 'User1', photo: 'https://picsum.photos/200', bio: 'This is a bio')
-    @post = Post.create(title: 'Post1', text: 'This is a post', author_id: @user.id)
-    @comment = Comment.create(text: 'This is a comment', author_id: @user.id, post_id: @post.id)
+    @pic = 'https://picsum.photos/200'
+    @author = User.create(name: 'Hero',
+                          photo: @pic,
+                          bio: 'This is a bio')
+    @first_post = Post.create(author: @author, title: 'This title', text: 'My first post')
+    @second_post = Post.create(author: @author, title: 'Second Title', text: 'My second post')
+    @comment1 = Comment.create(author: @author, post: @second_post, text: 'Thank you')
+    @comment2= Comment.create(author: @author, post: @second_post, text: 'Thank you')
+    @comment3 = Comment.create(author: @author, post: @second_post, text: 'Thank you')
+
+    visit user_posts_path(@author)
   end
 
-  it 'displays the user name' do
-    visit user_path(@user)
-    expect(page).to have_content(@user.name)
+  it 'shows the username of the user' do
+    expect(page).to have_content('Hero')
+  end
+  
+  it 'shows the user photo' do
+    expect(page).to have_css('div.user-avatar')
   end
 
-  it 'displays the user bio' do
-    visit user_path(@user)
-    expect(page).to have_content(@user.bio)
+  it 'shows number of comments a post has' do
+    expect(page.body).to include('Comments: 3')
   end
 
-  it 'displays the number of posts for the user' do
-    visit user_path(@user)
-    expect(page).to have_content(@user.posts_counter)
-  end
-
-  it 'displays the number of comments for the user' do
-    visit user_path(@user)
-    expect(page.body).to include('Comments: 1')
-  end
-
-  it 'displays the number of likes for the user' do
-    visit user_path(@user)
+  it 'shows number of likes a post has' do
     expect(page.body).to include('Likes: 0')
   end
 
-  it 'displays the posts for the user' do
-    visit user_path(@user)
-    expect(page).to have_content(@post.title)
+  it 'shows the title of the post' do
+    expect(page).to have_content(@second_post.title)
   end
 
-  it 'displays the number of likes for each post' do
-    visit user_path(@user)
-    expect(page).to have_content(@post.likes_counter)
+  it 'shows part of a post body (My second post)' do
+    expect(page).to have_content(@second_post.text)
   end
 
-  it 'displays the author of each comment' do
-    visit user_path(@user)
-    expect(page).to have_content(@user.name)
+  it 'shows the comments on a post like (Thank you)' do
+    expect(page).to have_content('Thank you')
+    expect(page).to have_content('Thank you')
+    expect(page).to have_content('Thank you')
   end
 
-  it 'displays the number of comments for each comment' do
-    visit user_path(@user)
-    expect(page.body).to include('Comments: 1')
+  it 'to show the Pagination buttons' do
+    expect(find_link('Pagination')).to be_visible
+  end
+
+  it 'Redirect to post show page when a post is clicked' do
+    click_link @first_post.title
+    expect(current_path).to match user_post_path(@author, @first_post)
   end
 end

@@ -7,6 +7,7 @@
   </div>
   <div class="user-container">
     <div class="user-details">
+      <div class="user-avatar"></div>
       <div class="user-name"><%= @user.try(:name) %></div>
       <div class="user-posts">Number Of Posts: <%= @user.try(:posts_counter) %></div>
     </div>
@@ -26,7 +27,24 @@
     </div>
     <% end %>
   <% end %>
+  <div class="comments-container">
+  <% @posts.each do |post| %>
+  <div class="comments">
+  <div class="comments-context">
+    <div class="comments-title">Comments</div>
+    <div class="comments-text">
+      <% post.comments.each do |comment| %>
+        <div class="comment">
+          <div class="comment-text"><%= comment.text %></div>
+          <div class="comment-author"><%= comment.author.name %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  </div>
+  <% end %>
+  </div>
   <div class="all-posts">
-    <%= link_to "All Posts", user_posts_path, class: "all-posts-btn" %>
+    <%= link_to "Pagination", user_posts_path, class: "all-posts-btn" %>
   </div>
 </div>
