@@ -12,6 +12,20 @@
   </head>
 
   <body>
+  <% if user_signed_in? %>
+  <!-- Display user's name and logout link -->
+  <p>
+    Welcome, <%= current_user.name %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  </p>
+<% else %>
+  <!-- Display login and sign up links -->
+  <p>
+    <%= link_to "Login", new_user_session_path %>
+    or
+    <%= link_to "Sign up", new_user_registration_path %>
+  </p>
+<% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,4 +1,5 @@
  <div class="show_post_view">
+ <h1 class="welcome"> Welcome to the Post Page <%= @post.author.name %> </h1>
  <div class="post-content">
         <div class="ptitle"> Post : <%= @post.title%> by <%= @post.author.name %></div>
         <div class="ptext"><%= @post.text%></div>
@@ -14,6 +15,7 @@
     </div>
     </div>
     <div class="comments-container"> 
+    <h2 class="ptitle"> This is the comments section <%= @post.author.name %> </h2>
      <% @post.comments.each do |comments| %>
      <div class="comments">
      <div class="comments-context">

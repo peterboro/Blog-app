@@ -1,7 +1,8 @@
 <div class="users_show_view">
     <div class="user-container">
+    <h1 class="welcome"> Welcome to the User Page <%= @users.name %> </h1>
     <div class="icon-container">
-    <div class="user-avatar"></div>
+    <div class="user-avatar"><%= image_tag @users.avatar, class: "avatar" %>
     </div>
     <div class="user-details">
     <div class="user-name"><%= @users.name %></div>

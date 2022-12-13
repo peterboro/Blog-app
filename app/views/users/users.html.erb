@@ -1,9 +1,10 @@
 <div class="users_view">
+<h1 class="welcome"> Welcome to the Users Page </h1>
     <% User.all.each do |user| %>
     <%= link_to user do %>
     <div class="user-container">
     <div class="icon-container">
-    <div class="user-avatar"></div>
+    <div class="user-avatar"><%= image_tag user.avatar, class: "avatar" %>
     </div>
     <div class="user-details">
     <div class="user-name"><%= user.name %></div>
