@@ -1,12 +1,15 @@
 <div class="users_show_view">
     <div class="user-container">
     <div class="icon-container">
-    <div class="user-icon"></div>
+    <div class="user-avatar"></div>
     </div>
     <div class="user-details">
     <div class="user-name"><%= @users.name %></div>
     <div class="user-posts">Number Of Posts: <%= @users.posts_counter %></div>
     </div>
+    </div>
+    <div class="link-new-post">
+    <%= link_to "New Post", new_user_post_url(user_id: @users.id), class: "new-post-btn" %>
     </div>
     <div class="user-content">
     <div class="context">Bio <br><br> <%= @users.bio%></div>

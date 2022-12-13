@@ -35,6 +35,7 @@
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 Blog App <a name="about-project"></a>
+
 **Blog App** will be a classic example of a blog website. You will create a fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -73,8 +74,11 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ER DIAGRAM-->
+
 ## :card_index: Entity Relationship Diagram <a name="er-diagram"></a>
+
 ![er-diagram](https://user-images.githubusercontent.com/84629565/203113736-82dacec0-6b75-42e6-b87e-8bf441ffbe57.png)
+
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
@@ -93,6 +97,7 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 `Git` and `Ruby`
+
 ```
  gem install rails
 ```
@@ -109,11 +114,9 @@ Install this project with:
 
 To run the project, execute the following command:
 
-
 ```sh
   rails server or rails s
-``` 
-
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -126,6 +129,11 @@ To run the project, execute the following command:
 - GitHub: [@peterboro](https://github.com/peterboro)
 - LinkedIn: [Peter Njuguna](https://www.linkedin.com/in/peter-n-3bb940122/)
 
+👤 _Edi Sipka_
+
+- GitHub: [@Edi-Sipka](https://github.com/edi-sipka)
+- Twitter: [@sipka_edii](https://twitter.com/sipka_edii)
+- LinkedIn: [Edi Sipka](https://www.linkedin.com/in/edi-%C5%A1ipka-5b681b202/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -162,6 +170,7 @@ Give a ⭐️ if you like this project!
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank:
+
 - [Microverse](microverse.org)
 - Code Reviewers
 

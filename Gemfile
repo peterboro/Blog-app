@@ -62,6 +62,10 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Use Bullet to help kill N+1 queries [
+  gem 'bullet'
+  # gem "bullet", "~> 6.1", ">= 6.1.5"
 end
 
 group :test do
@@ -72,6 +76,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'database_cleaner'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '>= 3.9.0'
 
