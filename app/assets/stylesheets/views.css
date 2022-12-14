@@ -209,7 +209,6 @@ a:visited {
 
 .welcome {
   text-align: center;
-  font: 700 2.05rem;
 }
 
 .sign-up-container,
@@ -226,7 +225,6 @@ a:visited {
 .ftext,
 .render,
 .finput {
-  font: 700 1.05rem;
   margin: 1rem 0;
 }
 
