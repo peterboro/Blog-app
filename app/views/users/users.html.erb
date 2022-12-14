@@ -4,7 +4,7 @@
     <%= link_to user do %>
     <div class="user-container">
     <div class="icon-container">
-    <div class="user-avatar"><%= image_tag user.avatar, class: "avatar" %>
+    <div class="user-avatar"><%= image_tag ("#{user.photo}"), alt: "profile photo" %></div>
     </div>
     <div class="user-details">
     <div class="user-name"><%= user.name %></div>

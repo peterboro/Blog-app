@@ -8,7 +8,6 @@
   </div>
   <div class="user-container">
     <div class="user-details">
-      <div class="user-avatar"><%= image_tag @user.try(:avatar) %></div>
       <div class="user-name"><%= @user.try(:name) %></div>
       <div class="user-posts">Number Of Posts: <%= @user.try(:posts_counter) %></div>
     </div>
