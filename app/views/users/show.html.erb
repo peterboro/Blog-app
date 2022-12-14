@@ -1,7 +1,7 @@
 <div class="users_show_view">
     <div class="user-container">
     <div class="icon-container">
-    <div class="user-avatar"></div>
+    <div class="user-avatar"><%= image_tag ("#{@users.photo}"), alt: "profile photo" %></div>
     </div>
     <div class="user-details">
     <div class="user-name"><%= @users.name %></div>

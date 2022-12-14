@@ -12,6 +12,16 @@
   </head>
 
   <body>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+    <div class="nav-bar">
+      <% if user_signed_in? %>
+      <a href="/" class="nav-item">Users</a>    
+      <% else %>
+      <%= button_to  "Sign In", new_user_session_path, class: "sign-in" %>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
