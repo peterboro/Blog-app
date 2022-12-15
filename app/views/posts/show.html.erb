@@ -24,7 +24,9 @@
      <% @post.comments.each do |comments| %>
      <div class="comments">
      <div class="comments-context">
-     <%= comments.author.name %> :  <%= comments.text %>
+        <div class="comment-author"> <%= comments.author.name %> </div>
+        <div class="comment-text"> <%= comments.text %> </div>
+    </div>
      </div>
      <% if can? :destroy, comments %>
       <%= button_to "Delete Comment", user_post_comment_path(user_id: comments.author.id, post_id: comments.post.id, id: comments.id), method: :delete, class: "delete-btn" %>
