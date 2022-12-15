@@ -84,4 +84,7 @@ group :development, :test do
   gem 'ffi'
 
   gem 'devise'
+
+  gem 'cancancan'
+
 end

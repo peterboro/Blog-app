@@ -26,8 +26,8 @@
   </div>
 
    <div class="field">
-        <%= f.label :posts_counter %><br>
-        <%= f.number_field :posts_counter, :value => 0, class: "finput" %>
+        <%= f.label :role %><br />
+        <%= f.select :role, options_for_select([["User", "user"], ["Admin", "admin"]]) %>
       </div>
 
   <div class="field">

@@ -8,10 +8,15 @@
         Likes: <%= @post.likes_counter%>
     </div>
     <div class="add-comment-container">
+        <% if user_signed_in? %>
         <%= link_to "Add A New Comment", new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id), class: "new-comment-btn" %>
         <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id) do |form| %>
         <%= form.submit "Add Like", class: "like-btn" %>
         <% end %>
+    <% end %>
+    <% if can? :destroy, @post %>
+    <%= button_to "Delete", user_post_path(user_id: @post.author_id, id: @post.id), method: :delete, class: "delete-btn" %>
+    <% end %>
     </div>
     </div>
     <div class="comments-container"> 
@@ -21,6 +26,9 @@
      <div class="comments-context">
      <%= comments.author.name %> :  <%= comments.text %>
      </div>
+     <% if can? :destroy, comments %>
+      <%= button_to "Delete Comment", user_post_comment_path(user_id: comments.author.id, post_id: comments.post.id, id: comments.id), method: :delete, class: "delete-btn" %>
+      <% end %>
      </div>
      <% end %>
  </div>
