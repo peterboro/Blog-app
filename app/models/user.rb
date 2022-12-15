@@ -14,8 +14,24 @@ class User < ApplicationRecord
 
   ROLES = %i[admin moderator author banned].freeze
 
-  def admin? 
-    role == 'admin'
+  def role?(base_role)
+    role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
+  end
+
+  def admin?
+    role?(:admin)
+  end
+
+  def moderator?
+    role?(:moderator)
+  end
+
+  def author?
+    role?(:author)
+  end
+
+  def banned?
+    role?(:banned)
   end
 
   def most_recent_posts

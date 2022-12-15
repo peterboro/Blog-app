@@ -15,7 +15,7 @@
         <% end %>
     <% end %>
     <% if can? :destroy, @post %>
-    <%= button_to "Delete", user_post_path(user_id: @post.author_id, id: @post.id), method: :delete, class: "delete-btn" %>
+    <%= button_to "Delete", user_path(user_id: @post.author_id, id: @post.id), method: :delete, class: "delete-btn" %>
     <% end %>
     </div>
     </div>

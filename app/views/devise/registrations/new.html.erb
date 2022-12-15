@@ -27,7 +27,7 @@
 
    <div class="field">
         <%= f.label :role %><br />
-        <%= f.select :role, options_for_select([["User", "user"], ["Admin", "admin"]]) %>
+        <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}) %>
       </div>
 
   <div class="field">
