@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-    before_action :authenticate_user!, only: %i[create destroy]
-    load_and_authorize_resource
+  before_action :authenticate_user!, only: %i[create destroy]
+  load_and_authorize_resource
 
   def new
     @comment = Comment.new
@@ -26,7 +26,6 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_to user_post_path(user_id: @post.author_id, post_id: @post.id), notice: 'Deleted Comment'
   end
-  
 
   private
 
