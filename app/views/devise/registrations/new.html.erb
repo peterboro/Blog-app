@@ -26,8 +26,8 @@
   </div>
 
    <div class="field">
-        <%= f.label :posts_counter %><br>
-        <%= f.number_field :posts_counter, :value => 0, class: "finput" %>
+        <%= f.label :role %><br />
+        <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}) %>
       </div>
 
   <div class="field">

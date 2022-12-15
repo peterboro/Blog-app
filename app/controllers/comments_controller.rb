@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: %i[create destroy]
+  load_and_authorize_resource
+
   def new
     @comment = Comment.new
   end
@@ -14,6 +17,14 @@ class CommentsController < ApplicationController
     else
       render :new, alert: 'Comment not saved'
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @post.decrement!(:comments_counter)
+    @comment.destroy
+    redirect_to user_post_path(user_id: @post.author_id, post_id: @post.id), notice: 'Deleted Comment'
   end
 
   private

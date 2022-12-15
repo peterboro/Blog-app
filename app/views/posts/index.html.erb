@@ -18,8 +18,14 @@
   <% @posts.each do |post| %>
     <%= link_to user_post_path(user_id: post.author_id, id: post.id) do %>
     <div class="post-content">
+        <%= link_to user_post_path(user_id: post.author_id, id: post.id) do %>
+        <div class="ptitle"> Post : <%= post.title%> by : <%= @user.try(:name) %></div>
+      <% end %>
       <div class="ptitle"> Post : <%= post.title%></div>
       <div class="ptext"><%= post.text%></div>
+      <% if can? :destroy, @post %>
+      <%= button_to "Delete", user_post_path(user_id: post.author_id, id: post.id), method: :delete, class: "delete-btn" %>
+      <% end %>
       <div class="pcount">
         Comments: <%= post.comments_counter%>
         Likes: <%= post.likes_counter%>
